@@ -48,7 +48,7 @@ jobs:
         cd BratvaGame
         buildozer init
 
-    - name: Configure buildozer.spec
+- name: Configure buildozer.spec
   run: |
     cd BratvaGame
     sed -i 's/title = My Application/title = Bratva 90s/' buildozer.spec
