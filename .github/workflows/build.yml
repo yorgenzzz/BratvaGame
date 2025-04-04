@@ -48,20 +48,19 @@ jobs:
         cd BratvaGame
         buildozer init
 
-    - name: Configure buildozer.spec
-      run: |
-        cd BratvaGame
-        sed -i 's/title = My Application/title = Bratva 90s/' buildozer.spec
-        sed -i 's/package.name = myapp/package.name = bratva/' buildozer.spec
-        sed -i 's/package.domain = org.test/package.domain = org.bratva/' buildozer.spec
-        sed -i 's/source.include_exts = py,png,jpg,kv,atlas/source.include_exts = py,png,jpg,mp3/' buildozer.spec
-        sed -i 's/requirements = python3,kivy/requirements = python3,kivy/' buildozer.spec
-        sed -i 's/#android.permissions = INTERNET/android.permissions = INTERNET/' buildozer.spec
-        sed -i 's/android.api = 31/android.api = 33/' buildozer.spec
-        sed -i 's/android.minapi = 21/android.minapi = 21/' buildozer.spec
-        sed -i 's/#icon =/icon = images\/icon.png/' buildozer.spec
-       sed -i 's/#android.sdk_path =/android.sdk_path = \/root\/android-sdk/' buildozer.spec
-       sed -i 's/#android.ndk =/android.ndk = 23b/' buildozer.spec
+   name: Configure buildozer.spec
+  run: |
+    cd BratvaGame
+    sed -i 's/title = My Application/title = Bratva 90s/' buildozer.spec
+    sed -i 's/package.name = myapp/package.name = bratva/' buildozer.spec
+    sed -i 's/package.domain = org.test/package.domain = org.bratva/' buildozer.spec
+    sed -i 's/source.include_exts = py,png,jpg,kv,atlas/source.include_exts = py,png,jpg,mp3/' buildozer.spec
+    sed -i 's/requirements = python3,kivy/requirements = python3,kivy/' buildozer.spec
+    sed -i 's/#android.permissions = INTERNET/android.permissions = INTERNET/' buildozer.spec
+    sed -i 's/android.api = 31/android.api = 33/' buildozer.spec
+    sed -i 's/android.minapi = 21/android.minapi = 21/' buildozer.spec
+    sed -i 's/#icon =/icon = images\/icon.png/' buildozer.spec
+    sed -i 's/#android.sdk_path =/android.sdk_path = \/root\/android-sdk/' buildozer.spec
 
     - name: Build APK
       run: |
