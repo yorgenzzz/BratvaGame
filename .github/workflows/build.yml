@@ -31,6 +31,18 @@ jobs:
         sudo apt-get install -y libffi-dev libssl-dev zlib1g-dev
         sudo apt-get install -y openjdk-17-jdk
 
+    - name: Set up Android SDK
+      run: |
+        mkdir -p $HOME/android-sdk
+        wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O commandlinetools.zip
+        unzip commandlinetools.zip -d $HOME/android-sdk
+        rm commandlinetools.zip
+        export ANDROID_HOME=$HOME/android-sdk
+        export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin
+        yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "build-tools;33.0.0" "platforms;android-33" "platform-tools"
+        echo "export ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+        echo "export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin" >> $GITHUB_ENV
+
     - name: Initialize Buildozer
       run: |
         cd BratvaGame
