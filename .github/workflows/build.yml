@@ -48,7 +48,7 @@ jobs:
         cd BratvaGame
         buildozer init
 
-   name: Configure buildozer.spec
+    - name: Configure buildozer.spec
   run: |
     cd BratvaGame
     sed -i 's/title = My Application/title = Bratva 90s/' buildozer.spec
@@ -61,6 +61,7 @@ jobs:
     sed -i 's/android.minapi = 21/android.minapi = 21/' buildozer.spec
     sed -i 's/#icon =/icon = images\/icon.png/' buildozer.spec
     sed -i 's/#android.sdk_path =/android.sdk_path = \/root\/android-sdk/' buildozer.spec
+    sed -i 's/#android.ndk =/android.ndk = 23b/' buildozer.spec
 
     - name: Build APK
       run: |
